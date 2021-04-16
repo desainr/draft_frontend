@@ -8,6 +8,12 @@
         <v-chip close @click:close="removeFilter(filter)">{{filter.toDisplayString()}}</v-chip>
       </v-list-item>
     </v-list>
+
+    <v-btn width="100%" color="primary" @click="querySubmitted">
+      Execute Query
+    </v-btn>
+    <v-card>
+    </v-card>
   </div>
 </template>
 
@@ -20,6 +26,9 @@ export default {
   methods: {
     removeFilter(filter) {
       this.$emit(EVENT_NAMES.FILTER_REMOVED, filter);
+    },
+    querySubmitted() {
+      this.$emit(EVENT_NAMES.QUERY_SUBMITTED, true);
     }
   }
 }

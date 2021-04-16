@@ -1,13 +1,11 @@
 <template>
   <div>
-    <v-toolbar>
-      <v-tabs centered v-model="tabs">
-        <v-tab>Draft</v-tab>
-        <v-tab>Player</v-tab>
-        <v-tab>Stats</v-tab>
-        <v-tab>Combine</v-tab>
-      </v-tabs>
-    </v-toolbar>
+    <v-tabs centered v-model="tabs">
+      <v-tab>Draft</v-tab>
+      <v-tab>Player</v-tab>
+      <v-tab>Stats</v-tab>
+      <v-tab>Combine</v-tab>
+    </v-tabs>
     <v-tabs-items v-model="tabs">
       <v-tab-item>
         <draft-form @filterAdded="addToFilter"></draft-form>

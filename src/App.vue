@@ -4,12 +4,12 @@
         v-model="drawer"
         app
     >
-      <filter-list :filters="query.filters" @filterRemoved="removeFilter"></filter-list>
+      <filter-list :filters="query.filters" @filterRemoved="removeFilter" @querySubmitted="submitQuery"></filter-list>
       <!--  -->
     </v-navigation-drawer>
     <v-app-bar app>
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>NFL Draft History</v-toolbar-title>
+      <v-icon @click="drawer = !drawer">mdi-filter-menu</v-icon>
+      <v-toolbar-title style="margin-left: 10px">DraftQL</v-toolbar-title>
     </v-app-bar>
     <v-main>
       <v-container fluid>

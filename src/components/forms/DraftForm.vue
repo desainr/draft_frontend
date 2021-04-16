@@ -2,7 +2,7 @@
   <div>
     <v-container>
       <v-row>
-        <v-col sm="2">
+        <v-col>
           <v-select
             label="Field"
             v-model="selectedField"
@@ -10,7 +10,7 @@
           >
           </v-select>
         </v-col>
-        <v-col sm="2">
+        <v-col>
           <v-select
             label="Operator"
             v-model="selectedOperator"
@@ -18,7 +18,7 @@
           >
           </v-select>
         </v-col>
-        <v-col sm="3" v-if="selectedOperator === '='">
+        <v-col v-if="selectedOperator === '='">
           <v-text-field
               type="number"
               v-model="startValue"
@@ -26,7 +26,7 @@
           >
           </v-text-field>
         </v-col>
-        <v-col sm="2" v-if="selectedOperator === 'bt'">
+        <v-col v-if="selectedOperator === 'bt'">
           <v-text-field
               type="number"
               v-model="startValue"
@@ -40,7 +40,7 @@
           >
           </v-text-field>
         </v-col>
-        <v-col sm="2" v-if="selectedOperator === 'bt'">
+        <v-col v-if="selectedOperator === 'bt'">
           <v-text-field
               type="number"
               v-model="endValue"

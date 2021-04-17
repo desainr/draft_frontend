@@ -7,6 +7,7 @@
             label="Field"
             v-model="selectedField"
             :items="fieldOpts"
+            @change="updateDefaults"
           >
           </v-select>
         </v-col>
@@ -29,7 +30,7 @@
         <v-col v-if="selectedOperator === 'bt'">
           <v-text-field
               type="number"
-              v-model="startValue"
+              :value="startValue"
           >
           </v-text-field>
         </v-col>
@@ -72,12 +73,15 @@ export default {
     operatorOpts: QUERY_FORM_SETTINGS.draft.operators,
     startValue: QUERY_FORM_SETTINGS.draft.selectOptions[0].value.min,
     endValue: QUERY_FORM_SETTINGS.draft.selectOptions[0].value.max,
-
   }),
   methods: {
     addFilter: function() {
       const filterObj = new Filter(FILTER_CATEGORIES.DRAFT, this.selectedField.field, this.selectedOperator, this.startValue, this.selectedOperator === OPERATORS.BETWEEN ? this.endValue : null);
       this.$emit(EVENT_NAMES.FILTER_ADDED, filterObj)
+    },
+    updateDefaults(option) {
+      this.startValue = option.min;
+      this.endValue = option.max;
     }
   },
 }

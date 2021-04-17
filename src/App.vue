@@ -5,7 +5,6 @@
         app
     >
       <filter-list :filters="query.filters" @filterRemoved="removeFilter" @querySubmitted="submitQuery"></filter-list>
-      <!--  -->
     </v-navigation-drawer>
     <v-app-bar app>
       <v-icon @click="drawer = !drawer">mdi-filter-menu</v-icon>
@@ -30,7 +29,7 @@
 
 <script>
 
-import { executeQuery } from '@/lib/services'
+import {executeQuery} from '@/lib/services'
 import ResultTable from "@/components/ResultTable";
 import QueryForm from "@/components/FormGroups";
 import Query from "@/lib/classes/query.model";
@@ -57,7 +56,7 @@ export default {
       this.draftData = await executeQuery(this.query);
       this.loading = false;
     },
-    removeFilter: function(filter) {
+    removeFilter: function (filter) {
       this.query.removeFilter(filter);
     }
   },

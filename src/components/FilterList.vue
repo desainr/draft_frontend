@@ -10,7 +10,7 @@
     </v-banner>
     <v-list>
       <v-list-item class="mt-1" v-for="filter of filters" v-bind:key="filter.fieldName">
-        <v-card hover rounded color="grey lighten-2" @click="removeFilter(filter)">
+        <v-card hover rounded color="grey darken-1" @click="removeFilter(filter)">
           <v-card-text>
             {{filter.toDisplayString()}}
           </v-card-text>

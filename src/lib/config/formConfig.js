@@ -37,5 +37,40 @@ export const QUERY_FORM_SETTINGS = {
           max: 262,
         },
       }]
+  },
+  player: {
+    selectOptions: [
+      {
+        text: 'Player',
+        value: {
+          field: 'player',
+          type: 'text',
+        },
+      },
+      {
+        text: 'Position',
+        value: {
+          default: 'All',
+          field: 'position',
+          type: 'select',
+        }
+      },
+      {
+        text: 'Team',
+        value: {
+          default: 'All',
+          field: 'team',
+          type: 'select',
+        }
+      },
+      {
+        text: 'College',
+        value: {
+          default: 'All',
+          field: 'college',
+          type: 'select',
+        },
+      },
+    ]
   }
 }

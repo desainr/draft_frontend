@@ -1,4 +1,4 @@
-import {Filter} from "@/lib/classes/filter.model";
+import {Filter} from "@/lib/models"
 
 export default class Query {
   constructor() {

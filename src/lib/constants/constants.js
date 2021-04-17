@@ -2,7 +2,9 @@ export const OPERATORS = {
   BETWEEN: 'bt',
   EQUALS: '=',
   GREATER_THAN: '>',
-  LESS_THAN: '<'
+  LESS_THAN: '<',
+  IN: 'in',
+  LIKE: 'like'
 };
 
 export const FILTER_CATEGORIES = {

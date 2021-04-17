@@ -8,10 +8,10 @@
     </v-tabs>
     <v-tabs-items v-model="tabs">
       <v-tab-item>
-        <draft-form @filterAdded="addToFilter"></draft-form>
+        <draft-form @filterAdded="filterAdded"></draft-form>
       </v-tab-item>
       <v-tab-item>
-        Player form
+        <player-form @filterAdded="filterAdded"></player-form>
       </v-tab-item>
       <v-tab-item>
         Stats form
@@ -25,15 +25,17 @@
 
 <script>
 import DraftForm from "@/components/forms/DraftForm";
+import PlayerForm from "@/components/forms/PlayerForm";
 import {EVENT_NAMES} from "@/lib/constants/constants";
+
 export default {
   name: "QueryForm",
-  components: {DraftForm},
+  components: {DraftForm, PlayerForm},
   data: () => ({
     tabs: null,
   }),
   methods: {
-    addToFilter: function (filter) {
+    filterAdded: function (filter) {
       this.$emit(EVENT_NAMES.FILTER_ADDED, filter)
     }
   }

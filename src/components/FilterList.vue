@@ -1,11 +1,20 @@
 <template>
   <div>
     <v-banner>
-      Active Filters
+      <div class="text-h5">
+        Active Filters
+      </div>
+      <div class="text-caption">
+        Click to remove
+      </div>
     </v-banner>
     <v-list>
-      <v-list-item v-for="filter of filters" v-bind:key="filter.fieldName">
-        <v-chip close @click:close="removeFilter(filter)">{{filter.toDisplayString()}}</v-chip>
+      <v-list-item class="mt-1" v-for="filter of filters" v-bind:key="filter.fieldName">
+        <v-card hover rounded color="grey lighten-2" @click="removeFilter(filter)">
+          <v-card-text>
+            {{filter.toDisplayString()}}
+          </v-card-text>
+        </v-card>
       </v-list-item>
     </v-list>
 
@@ -35,5 +44,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

@@ -1,6 +1,6 @@
 import {OPERATORS} from "@/lib/constants/constants";
 
-export class Filter {
+export default class Filter {
 
   /**
    * @param filterCategory {String}

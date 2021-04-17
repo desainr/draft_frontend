@@ -32,7 +32,7 @@
 import {executeQuery} from '@/lib/services'
 import ResultTable from "@/components/ResultTable";
 import QueryForm from "@/components/FormGroups";
-import Query from "@/lib/classes/query.model";
+import {Query} from "@/lib/models";
 import FilterList from "@/components/FilterList";
 
 export default {

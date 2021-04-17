@@ -62,7 +62,7 @@
 
 import {OPERATORS, FILTER_CATEGORIES, EVENT_NAMES} from "@/lib/constants/constants";
 import {QUERY_FORM_SETTINGS} from '@/lib/config/formConfig';
-import {Filter} from "@/lib/classes/filter.model";
+import {Filter} from "@/lib/models";
 
 export default {
   name: "DraftForm",

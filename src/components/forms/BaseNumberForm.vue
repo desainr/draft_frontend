@@ -49,7 +49,7 @@
           </v-text-field>
         </v-col>
         <v-col>
-          <v-btn color="success" rounded @click="addFilter">
+          <v-btn color="success" @click="addFilter">
             Add Filter
           </v-btn>
         </v-col>

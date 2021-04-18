@@ -2,7 +2,7 @@ import {OPERATORS} from "@/lib/constants/constants";
 
 export default class Filter {
 
-  /**
+  /**f
    * @param filterCategory {String}
    * @param fieldName {String}
    * @param operator {String}
@@ -18,7 +18,11 @@ export default class Filter {
   }
 
   toQueryString() {
-    return `${this.fieldName}${this.operatorUrlEncoded}${this._value}`;
+    if (this._operator === OPERATORS.BETWEEN) {
+      return `${this.fieldName}${encodeURI('>')}${this._value}&${this.fieldName}${encodeURI('<')}${this._endValue}`;
+    } else {
+      return `${this.fieldName}${this.operatorUrlEncoded}${this._value}`;
+    }
   }
 
   toDisplayString() {

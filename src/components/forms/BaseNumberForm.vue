@@ -19,7 +19,7 @@
           >
           </v-select>
         </v-col>
-        <v-col v-if="selectedOperator === '='">
+        <v-col v-if="selectedOperator !== 'bt'">
           <v-text-field
               type="number"
               v-model="startValue"
@@ -61,19 +61,22 @@
 <script>
 
 import {OPERATORS, FILTER_CATEGORIES, EVENT_NAMES} from "@/lib/constants/constants";
-import {QUERY_FORM_SETTINGS} from '@/lib/config/formConfig';
 import {Filter} from "@/lib/models";
+import {OPERATOR_OPTIONS} from '@/lib/config/formConfig';
 
 export default {
-  name: "DraftForm",
-  data: () => ({
-    selectedField: QUERY_FORM_SETTINGS.draft.selectOptions[0].value,
-    selectedOperator: QUERY_FORM_SETTINGS.draft.operators[0].value,
-    fieldOpts: QUERY_FORM_SETTINGS.draft.selectOptions,
-    operatorOpts: QUERY_FORM_SETTINGS.draft.operators,
-    startValue: QUERY_FORM_SETTINGS.draft.selectOptions[0].value.min,
-    endValue: QUERY_FORM_SETTINGS.draft.selectOptions[0].value.max,
-  }),
+  name: "BaseNumberForm",
+  props: ['formSettings'],
+  data: function() {
+    return {
+      selectedField: this.formSettings.selectOptions[0].value,
+      selectedOperator: OPERATOR_OPTIONS[0].value,
+      fieldOpts: this.formSettings.selectOptions,
+      operatorOpts: OPERATOR_OPTIONS,
+      startValue: this.formSettings.selectOptions[0].value.min,
+      endValue: this.formSettings.selectOptions[0].value.max,
+    }
+  },
   methods: {
     addFilter: function() {
       const filterObj = new Filter(FILTER_CATEGORIES.DRAFT, this.selectedField.field, this.selectedOperator, this.startValue, this.selectedOperator === OPERATORS.BETWEEN ? this.endValue : null);

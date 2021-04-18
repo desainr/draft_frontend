@@ -8,30 +8,32 @@
     </v-tabs>
     <v-tabs-items v-model="tabs">
       <v-tab-item>
-        <draft-form @filterAdded="filterAdded"></draft-form>
+        <base-number-form :form-settings="formSettings.draft" @filterAdded="filterAdded"></base-number-form>
       </v-tab-item>
       <v-tab-item>
         <player-form @filterAdded="filterAdded"></player-form>
       </v-tab-item>
       <v-tab-item>
-        Stats form
+        <base-number-form :form-settings="formSettings.stats" @filterAdded="filterAdded"></base-number-form>
       </v-tab-item>
       <v-tab-item>
-        Combine form
+        <base-number-form :form-settings="formSettings.combine" @filterAdded="filterAdded"></base-number-form>
       </v-tab-item>
     </v-tabs-items>
   </div>
 </template>
 
 <script>
-import DraftForm from "@/components/forms/DraftForm";
-import PlayerForm from "@/components/forms/PlayerForm";
 import {EVENT_NAMES} from "@/lib/constants/constants";
+import {QUERY_FORM_SETTINGS} from "@/lib/config/formConfig";
+import BaseNumberForm from "@/components/forms/BaseNumberForm";
+import PlayerForm from "@/components/forms/PlayerForm";
 
 export default {
   name: "QueryForm",
-  components: {DraftForm, PlayerForm},
+  components: {PlayerForm, BaseNumberForm},
   data: () => ({
+    formSettings: QUERY_FORM_SETTINGS,
     tabs: null,
   }),
   methods: {

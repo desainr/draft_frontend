@@ -1,4 +1,4 @@
-import { getRequest } from '../http';
+import { getRequest } from '@/lib/http';
 
 const reqUrl = 'https://nfl-draft-api.azurewebsites.net/api/draft_filter?code=aVIdIa9bNR2Dgc3eRzS1Sh9jHvFShHIqeguFXLQvUOOHjuGvyjRWOA==';
 

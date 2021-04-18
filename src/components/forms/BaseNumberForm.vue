@@ -4,7 +4,6 @@
       <v-row>
         <v-col>
           <v-select
-            label="Field"
             v-model="selectedField"
             :items="fieldOpts"
             @change="updateDefaults"
@@ -13,7 +12,6 @@
         </v-col>
         <v-col>
           <v-select
-            label="Operator"
             v-model="selectedOperator"
             :items="operatorOpts"
           >

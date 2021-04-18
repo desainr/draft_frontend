@@ -4,7 +4,6 @@
       <v-row>
         <v-col>
           <v-select
-              label="Field"
               :items="fieldOpts"
               v-model="selectedField"
               @change="updateDefaults()"

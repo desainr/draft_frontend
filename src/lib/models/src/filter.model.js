@@ -19,10 +19,9 @@ export default class Filter {
 
   toQueryString() {
     if (this._operator === OPERATORS.BETWEEN) {
-      return `${this.fieldName}${encodeURI('>')}${this._value}&${this.fieldName}${encodeURI('<')}${this._endValue}`;
+      return `${this._fieldName}.operator=${this.operatorUrlEncoded}&${this._fieldName}.startValue=${this._value}&${this._fieldName}.endValue=${this._endValue}`;
     } else {
-      return `${this.fieldName}${this.operatorUrlEncoded}${this._value}`;
-    }
+      return `${this._fieldName}.operator=${this.operatorUrlEncoded}&${this._fieldName}.value=${this._value}`;    }
   }
 
   toDisplayString() {

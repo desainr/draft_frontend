@@ -21,6 +21,7 @@
         </v-row>
         <v-row>
           <v-col>
+            <v-alert text type="error" v-if="showError">An error occurred, could not process query.</v-alert>
             <result-table :draft-data="draftData" :loading="loading"></result-table>
           </v-col>
         </v-row>
@@ -48,11 +49,11 @@ export default {
     drawer: null,
     draftData: [],
     loading: true,
+    showError: false,
     query: new Query(),
   }),
   created: async function () {
-    this.draftData = await executeQuery(this.query);
-    this.loading = false;
+    await this.submitQuery(this.query);
   },
   methods: {
     addFilter: function (filter) {
@@ -60,7 +61,15 @@ export default {
     },
     submitQuery: async function () {
       this.loading = true;
-      this.draftData = await executeQuery(this.query);
+
+      try {
+        this.draftData = await executeQuery(this.query);
+        this.showError = false;
+      } catch (ex) {
+        this.loading = false;
+        this.showError = true;
+      }
+
       this.loading = false;
     },
     removeFilter: function (filter) {

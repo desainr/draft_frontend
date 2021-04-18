@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-banner>
-      <div class="text-h5">
+      <div class="text-h6">
         Active Filters
       </div>
       <div class="text-caption">

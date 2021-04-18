@@ -8,7 +8,9 @@
     </v-navigation-drawer>
     <v-app-bar app>
       <v-icon @click="drawer = !drawer">mdi-filter-menu</v-icon>
-      <v-toolbar-title style="margin-left: 10px">DraftQL</v-toolbar-title>
+      <v-toolbar-title class="ml-4">
+        <span class="text-h4">DraftQL</span>
+      </v-toolbar-title>
     </v-app-bar>
     <v-main>
       <v-container fluid>
@@ -24,6 +26,11 @@
         </v-row>
       </v-container>
     </v-main>
+    <v-footer>
+      <p>
+        All data credit to <a href="http://pro-football-reference.com">Pro Football Reference</a> and <a href="http://nflcombineresults.com">nflcombineresults.com</a>
+      </p>
+    </v-footer>
   </v-app>
 </template>
 

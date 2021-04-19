@@ -133,7 +133,7 @@
       default.
     </p>
     <p>
-      &#8226; The player search may be a bit confusing. It does a basic search for any terms you type in. For example,
+      &#8226; The player name search may be a bit confusing. It does a basic search for any terms you type in. For example,
       if I
       enter just "Tom", it will return all players that have "Tom" in any part of their name, first or last. It's not
       really that useful but whatever.

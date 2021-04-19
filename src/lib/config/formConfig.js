@@ -50,7 +50,7 @@ export const QUERY_FORM_SETTINGS = {
   player: {
     selectOptions: [
       {
-        text: 'Player',
+        text: 'Name',
         value: {
           field: 'player',
           type: 'text',

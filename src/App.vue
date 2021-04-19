@@ -52,7 +52,7 @@
 
 <script>
 
-import {executeQuery} from '@/lib/services'
+import {executeQuery} from '@/lib/api'
 import ResultTable from "@/components/ResultTable";
 import QueryForm from "@/components/FormGroups";
 import {Query} from "@/lib/models";
@@ -78,7 +78,7 @@ export default {
       if (this.showWarning) {
         this.showWarning = false;
       }
-      
+
       this.query.addFilter(filter);
     },
     submitQuery: async function () {

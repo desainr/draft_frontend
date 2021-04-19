@@ -114,6 +114,20 @@
           <v-list-item-subtitle></v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
+      <v-list-item>
+        <v-list-item-avatar>
+          <v-icon
+              class="primary"
+              dark
+          >
+            mdi-arrow-right
+          </v-icon>
+        </v-list-item-avatar>
+        <v-list-item-content>
+          <v-list-item-title>Remove filters from the Active Filters list by clicking on them.</v-list-item-title>
+          <v-list-item-subtitle></v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
     </v-list>
     <v-divider class="mt-2"></v-divider>
     <p>

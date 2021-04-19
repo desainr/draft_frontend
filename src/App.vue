@@ -6,7 +6,13 @@
     >
       <filter-list :filters="query.filters" :showWarning="showWarning" @filterRemoved="removeFilter" @querySubmitted="submitQuery"></filter-list>
     </v-navigation-drawer>
-    <v-app-bar app>
+    <v-app-bar app :src="backgroundImagePath" prominent>
+      <template v-slot:img="{ props }">
+        <v-img
+            v-bind="props"
+            gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
+        ></v-img>
+      </template>
       <v-icon @click="drawer = !drawer">mdi-filter-menu</v-icon>
       <v-app-bar-title class="ml-4">
         <span class="text-h4">DraftQL</span>
@@ -14,7 +20,7 @@
       <v-spacer></v-spacer>
       <v-btn icon @click="() => this.showInformation = !showInformation">
         <v-icon
-            color="primary"
+            color="white"
             dark
         >
           mdi-information-outline
@@ -58,6 +64,7 @@ import QueryForm from "@/components/FormGroups";
 import {Query} from "@/lib/models";
 import FilterList from "@/components/FilterList";
 import AboutSection from "@/components/AboutSection";
+import backgroundImage from '@/static/app-bar-background.jpg';
 
 export default {
   components: {AboutSection, FilterList, QueryForm, ResultTable},
@@ -69,6 +76,7 @@ export default {
     showInformation: false,
     showWarning: false,
     query: new Query(),
+    backgroundImagePath: backgroundImage,
   }),
   created: async function () {
     await this.submitQuery(this.query);

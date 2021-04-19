@@ -17,7 +17,7 @@ export const TABLE_HEADERS = {
     {text: 'Passing INTs', value: 'pass_ints'},
     {text: 'Rush Yards', value: 'rush_yds'},
     {text: 'Rush TDS', value: 'rush_tds'},
-    {text: 'Yards/Carry', value: 'yds_per_carry'},
+    {text: 'Yards/Carry', value: 'yds_per_rush'},
     {text: 'Receptions', value: 'recs'},
     {text: 'Receiving Yards', value: 'rec_yds'},
     {text: 'Receiving TDs', value: 'rec_tds'},

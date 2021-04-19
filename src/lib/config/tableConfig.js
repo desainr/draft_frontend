@@ -5,7 +5,7 @@ export const TABLE_HEADERS = {
     {text: 'Pick', value: 'pick'},
     {text: 'Player', value: 'player'},
     {text: 'Position', value: 'position'},
-    {text: 'Team', value: 'team_name'},
+    {text: 'Team', value: 'team'},
     {text: 'College', value: 'college'},
   ],
   stats: [

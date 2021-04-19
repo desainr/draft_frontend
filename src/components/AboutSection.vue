@@ -1,7 +1,7 @@
 <template>
   <v-alert outlined color="dark">
     <p class="text-center">
-      <span class="text-h4">Hello! Welcome to DraftQL.</span>
+      <span class="text-h4">Hello! Welcome to Draft&#8226;QL.</span>
     </p>
     <p class="text-center text-subtitle-1">
       This is a tool that allows you to search through all of the NFL drafts since 2000 to filter it down to

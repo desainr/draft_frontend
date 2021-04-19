@@ -120,27 +120,30 @@
       <span class="text-h6">A Couple of Notes...</span>
     </p>
     <p>
-      <span style="color: #4caf50;">ADD FILTER</span> also updates an existing filter of the same field.
+      &#8226; <span style="color: #4caf50;">ADD FILTER</span> also updates an existing filter of the same field.
     </p>
     <p>
-      The player search may be a bit confusing. It does a basic search for any terms you type in. For example, if I
+      &#8226; Please note that the combine data is not complete for every player. If you don't see a player show up when you think they should, it's probably because there's no data for them. Also some players have default values (like 9.99 for 40 time) if they didn't run it.
+    </p>
+    <p>
+      &#8226; The player search may be a bit confusing. It does a basic search for any terms you type in. For example, if I
       enter just "Tom", it will return all players that have "Tom" in any part of their name, first or last. It's not
       really that useful but whatever.
     </p>
     <p>
-      There is no input validation, so what you query is what you get. You can search for a negative year. Nothing will
+      &#8226; There is no input validation, so what you query is what you get. You can search for a negative year. Nothing will
       happen except you'll get no results.
     </p>
     <p>
-      On the <span class="tab-font">Player</span> group, you are prevented from adding a filter of 'All' as that is the
+      &#8226; On the <span class="tab-font">Player</span> group, you are prevented from adding a filter of 'All' as that is the
       default.
     </p>
     <p>
-      All data credit to <a href="http://pro-football-reference.com">Pro Football Reference</a> and <a
+      &#8226; All data credit to <a href="http://pro-football-reference.com">Pro Football Reference</a> and <a
         href="http://nflcombineresults.com">nflcombineresults.com</a>
     </p>
     <p>
-      I'm just a smol indie developer so if you notice any bugs or it's not as performant as you like, I apologize.
+      &#8226; I'm just a smol indie developer so if you notice any bugs or it's not as performant as you like, I apologize.
     </p>
 
   </v-alert>

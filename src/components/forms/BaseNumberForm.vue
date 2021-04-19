@@ -28,7 +28,7 @@
         <v-col v-if="selectedOperator === 'bt'">
           <v-text-field
               type="number"
-              :value="startValue"
+              v-model="startValue"
           >
           </v-text-field>
         </v-col>

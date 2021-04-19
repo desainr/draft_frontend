@@ -71,3 +71,17 @@ export default {
 }
 
 </script>
+
+<style>
+  .green-text {
+    color: lightgreen !important;
+  }
+
+  .orange-text {
+    color: #FFB74D !important;
+  }
+
+  .blue-text {
+    color: #2196f3 !important;
+  }
+</style>

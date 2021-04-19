@@ -6,7 +6,7 @@
     >
       <filter-list :filters="query.filters" :showWarning="showWarning" @filterRemoved="removeFilter" @querySubmitted="submitQuery"></filter-list>
     </v-navigation-drawer>
-    <v-app-bar app :src="backgroundImagePath" prominent>
+    <v-app-bar app :src="backgroundImagePath" prominent shrink-on-scroll>
       <template v-slot:img="{ props }">
         <v-img
             v-bind="props"
@@ -14,9 +14,9 @@
         ></v-img>
       </template>
       <v-icon @click="drawer = !drawer">mdi-filter-menu</v-icon>
-      <v-app-bar-title class="ml-4">
-        <span class="text-h4">DraftQL</span>
-      </v-app-bar-title>
+      <v-toolbar-title class="ml-4">
+        <span class="text-h2 title">DraftQL</span>
+      </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon @click="() => this.showInformation = !showInformation">
         <v-icon
@@ -114,3 +114,11 @@ export default {
 }
 
 </script>
+
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Iceland&family=Krona+One&display=swap');
+
+.title {
+  font-family: 'Iceland', cursive !important;
+  }
+</style>

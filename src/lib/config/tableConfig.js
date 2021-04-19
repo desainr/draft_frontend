@@ -27,7 +27,9 @@ export const TABLE_HEADERS = {
     {text: 'Defensive INTs', value: 'def_ints'},
   ],
   combine: [
-    {text: '40 Time', align: 'start', value: 'forty_time'},
+    {text: 'Height (in)', align: 'start', value: 'height'},
+    {text: 'Weight (lbs)', value: 'weight'},
+    {text: '40 Time', value: 'forty_time'},
     {text: 'Bench Press', value: 'bench_press'},
     {text: 'Vert Leap', value: 'vert_leap'},
     {text: 'Broad Jump', value: 'broad_jump'},

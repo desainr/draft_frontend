@@ -217,6 +217,22 @@ export const QUERY_FORM_SETTINGS = {
   combine: {
     selectOptions: [
       {
+        text: 'Height (in)',
+        value: {
+          default: 74,
+          field: 'height',
+          type: 'number',
+        }
+      },
+      {
+        text: 'Weight (lbs)',
+        value: {
+          default: 250,
+          field: 'weight',
+          type: 'number',
+        }
+      },
+      {
         text: '40 Yard Dash',
         value: {
           field: 'forty_time',

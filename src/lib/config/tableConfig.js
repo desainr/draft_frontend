@@ -1,0 +1,37 @@
+export const TABLE_HEADERS = {
+  default: [
+    {text: 'Year', align: 'start', value: 'year'},
+    {text: 'Round', value: 'round'},
+    {text: 'Pick', value: 'pick'},
+    {text: 'Player', value: 'player'},
+    {text: 'Position', value: 'position'},
+    {text: 'Team', value: 'team_name'},
+    {text: 'College', value: 'college'},
+  ],
+  stats: [
+    {text: 'Games Played', align: 'start', value: 'games'},
+    {text: 'Pass Yards', value: 'pass_yds'},
+    {text: 'Pass TDs', value: 'pass_tds'},
+    {text: 'Completion %', value: 'comp_pct'},
+    {text: 'Yards/Attempt', value: 'yds_per_att'},
+    {text: 'Passing INTs', value: 'pass_ints'},
+    {text: 'Rush Yards', value: 'rush_yds'},
+    {text: 'Rush TDS', value: 'rush_tds'},
+    {text: 'Yards/Carry', value: 'yds_per_carry'},
+    {text: 'Receptions', value: 'recs'},
+    {text: 'Receiving Yards', value: 'rec_yds'},
+    {text: 'Receiving TDs', value: 'rec_tds'},
+    {text: 'Yards/Reception', value: 'yds_per_rec'},
+    {text: 'Sacks', value: 'sacks'},
+    {text: 'Tackles', value: 'tackles'},
+    {text: 'Defensive INTs', value: 'def_ints'},
+  ],
+  combine: [
+    {text: '40 Time', align: 'start', value: 'forty_time'},
+    {text: 'Bench Press', value: 'bench_press'},
+    {text: 'Vert Leap', value: 'vert_leap'},
+    {text: 'Broad Jump', value: 'broad_jump'},
+    {text: 'Shuttle', value: 'shuttle'},
+    {text: 'Three Cone', value: 'three_cone'},
+  ]
+}

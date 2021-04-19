@@ -16,9 +16,10 @@
               multiple
               :items="options[selectedField.field]"
               v-model="selectedValues"
+              @change="updateSelectAll"
           >
             <template
-              v-slot:prepend-item
+                v-slot:prepend-item
             >
               <v-list-item
                   ripple
@@ -63,6 +64,59 @@
               hint="Enter player name(s) to search. Search multiple by separating with |"
           >
           </v-text-field>
+          <v-autocomplete
+              v-if="selectedField.type === 'autocomplete'"
+              v-model="selectedValues"
+              :items="options[selectedField.field]"
+              chips
+              multiple
+              label="Type to search..."
+              @change="updateSelectAll"
+          >
+            <template
+                v-slot:prepend-item
+            >
+              <v-list-item
+                  ripple
+                  @click="toggleSelectAll"
+              >
+                <v-list-item-action>
+                  <v-icon :color="selectedValues.length > 0 ? 'indigo darken-4' : ''">
+                    {{ icon }}
+                  </v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                  <v-list-item-title>
+                    Select All
+                  </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+              <v-divider class="mt-2"></v-divider>
+            </template>
+            <template v-slot:selection="data">
+              <div v-if="selectAll">
+                <v-chip v-if="data.index === 0">
+                  <span>All</span>
+                </v-chip>
+              </div>
+              <div v-else>
+                <v-chip
+                    v-if="data.index < 5"
+                    close
+                    :input-value="data.item"
+                    @click:close="removeSelection(data.item)"
+                >
+                  {{ data.item }}
+                </v-chip>
+                <span
+                    v-if="data.index === 4"
+                    class="grey--text caption"
+                >
+              (+{{ selectedValues.length - 4 }} others)
+              </span>
+              </div>
+            </template>
+          </v-autocomplete>
         </v-col>
         <v-col>
           <v-btn color="success" rounded @click="addFilter">
@@ -79,15 +133,17 @@
 import {EVENT_NAMES, FILTER_CATEGORIES, OPERATORS} from "@/lib/constants/constants";
 import {QUERY_FORM_SETTINGS} from '@/lib/config/formConfig';
 import {Filter} from "@/lib/models";
-
+import collegeList from '@/lib/config/colleges.json';
+import teamsList from '@/lib/config/teams.json';
+import positionList from '@/lib/config/positions.json';
 export default {
   name: "PlayerForm",
   data: () => ({
     fieldOpts: QUERY_FORM_SETTINGS.player.selectOptions,
     options: {
-      college: ['Michigan', 'Michigan St.', 'Ohio St.', 'Nebraska'],
-      position: ['QB', 'RB', 'WR', 'TE', 'T', 'G', 'C', 'FB', 'DT', 'DT', 'LB', 'S', 'CB', 'K', 'P', 'LS'],
-      team: ['Broncos', 'Chiefs', 'Lions', 'Packers', 'Cardinals', '49ers', 'Rams'],
+      college: collegeList.colleges,
+      position: positionList.positions,
+      team: teamsList.teams,
     },
     selectedField: QUERY_FORM_SETTINGS.player.selectOptions[0].value,
     selectAll: true,
@@ -97,8 +153,8 @@ export default {
   methods: {
     addFilter() {
       if (this.playerSearchString || this.selectedValues.length < this.options[this.selectedField.field].length) {
-        const operator = this.selectedField.type === 'select' ? OPERATORS.IN : OPERATORS.LIKE;
-        const value = this.selectedField.type === 'select' ? this.selectedValues : this.playerSearchString;
+        const operator = this.selectedField.type !== 'text' ? OPERATORS.IN : OPERATORS.LIKE;
+        const value = this.selectedField.type !== 'text' ? this.selectedValues : this.playerSearchString;
 
         const filter = new Filter(FILTER_CATEGORIES.PLAYER, this.selectedField.field, operator, value);
         this.$emit(EVENT_NAMES.FILTER_ADDED, filter)
@@ -112,17 +168,28 @@ export default {
         this.selectedValues = [];
       }
     },
+    updateSelectAll() {
+      if (this.selectAll) {
+        this.selectAll = false;
+      }
+    },
     updateDefaults() {
       this.selectAll = true;
-      if (this.selectedField.type === 'select') {
+      if (this.selectedField.type !== 'text') {
         this.selectedValues = this.options[this.selectedField.field].slice();
       } else {
         this.playerSearchString = '';
       }
+    },
+    removeSelection(selection) {
+      const index = this.selectedValues.indexOf(selection)
+      if (index >= 0) {
+        this.selectedValues.splice(index, 1)
+      }
     }
   },
   computed: {
-    icon () {
+    icon() {
       if (this.selectAll) {
         return 'mdi-close-box'
       } else {

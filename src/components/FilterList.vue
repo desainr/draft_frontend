@@ -18,6 +18,9 @@
       </v-list-item>
     </v-list>
 
+    <v-alert type="warning" v-if="showWarning" outlined>
+      You must have at least one filter.
+    </v-alert>
     <v-btn width="100%" color="primary" @click="querySubmitted">
       Execute Query
     </v-btn>
@@ -31,7 +34,7 @@ import {EVENT_NAMES} from "@/lib/constants/constants";
 
 export default {
   name: "FilterList",
-  props: ['filters'],
+  props: ['filters', 'showWarning'],
   methods: {
     removeFilter(filter) {
       this.$emit(EVENT_NAMES.FILTER_REMOVED, filter);

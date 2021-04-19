@@ -29,6 +29,8 @@ export default class Filter {
 
     if (this.operator === OPERATORS.BETWEEN) {
       str = `${this._fieldName} between ${this.value} & ${this.endValue}`;
+    } else if (this.operator === OPERATORS.IN) {
+      str = `${this.fieldName} ${this.operator} (${this.value})`;
     } else {
       str = `${this.fieldName} ${this.operator} ${this.value}`;
     }

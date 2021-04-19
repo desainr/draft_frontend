@@ -4,16 +4,30 @@
         v-model="drawer"
         app
     >
-      <filter-list :filters="query.filters" @filterRemoved="removeFilter" @querySubmitted="submitQuery"></filter-list>
+      <filter-list :filters="query.filters" :showWarning="showWarning" @filterRemoved="removeFilter" @querySubmitted="submitQuery"></filter-list>
     </v-navigation-drawer>
     <v-app-bar app>
       <v-icon @click="drawer = !drawer">mdi-filter-menu</v-icon>
-      <v-toolbar-title class="ml-4">
+      <v-app-bar-title class="ml-4">
         <span class="text-h4">DraftQL</span>
-      </v-toolbar-title>
+      </v-app-bar-title>
+      <v-spacer></v-spacer>
+      <v-btn icon @click="() => this.showInformation = !showInformation">
+        <v-icon
+            color="primary"
+            dark
+        >
+          mdi-information-outline
+        </v-icon>
+      </v-btn>
     </v-app-bar>
     <v-main>
       <v-container fluid>
+        <v-row v-if="showInformation">
+          <v-col>
+            <about-section></about-section>
+          </v-col>
+        </v-row>
         <v-row>
           <v-col>
             <query-form @filterAdded="addFilter"></query-form>
@@ -29,7 +43,8 @@
     </v-main>
     <v-footer>
       <p>
-        All data credit to <a href="http://pro-football-reference.com">Pro Football Reference</a> and <a href="http://nflcombineresults.com">nflcombineresults.com</a>
+        All data credit to <a href="http://pro-football-reference.com">Pro Football Reference</a> and <a
+          href="http://nflcombineresults.com">nflcombineresults.com</a>
       </p>
     </v-footer>
   </v-app>
@@ -42,14 +57,17 @@ import ResultTable from "@/components/ResultTable";
 import QueryForm from "@/components/FormGroups";
 import {Query} from "@/lib/models";
 import FilterList from "@/components/FilterList";
+import AboutSection from "@/components/AboutSection";
 
 export default {
-  components: {FilterList, QueryForm, ResultTable},
+  components: {AboutSection, FilterList, QueryForm, ResultTable},
   data: () => ({
     drawer: null,
     draftData: [],
     loading: true,
     showError: false,
+    showInformation: false,
+    showWarning: false,
     query: new Query(),
   }),
   created: async function () {
@@ -57,20 +75,29 @@ export default {
   },
   methods: {
     addFilter: function (filter) {
+      if (this.showWarning) {
+        this.showWarning = false;
+      }
+      
       this.query.addFilter(filter);
     },
     submitQuery: async function () {
-      this.loading = true;
 
-      try {
-        this.draftData = await executeQuery(this.query);
-        this.showError = false;
-      } catch (ex) {
+      if (this.query.filters.length === 0) {
+        this.showWarning = true;
+      } else {
+        this.loading = true;
+
+        try {
+          this.draftData = await executeQuery(this.query);
+          this.showError = false;
+        } catch (ex) {
+          this.loading = false;
+          this.showError = true;
+        }
+
         this.loading = false;
-        this.showError = true;
       }
-
-      this.loading = false;
     },
     removeFilter: function (filter) {
       this.query.removeFilter(filter);

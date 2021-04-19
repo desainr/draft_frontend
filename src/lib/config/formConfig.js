@@ -26,7 +26,7 @@ export const QUERY_FORM_SETTINGS = {
         text: 'Year',
         value: {
           field: 'year',
-          min: 2000,
+          min: 2020,
           max: 2020,
         },
       },
@@ -69,7 +69,7 @@ export const QUERY_FORM_SETTINGS = {
         value: {
           default: 'All',
           field: 'team',
-          type: 'select',
+          type: 'autocomplete',
         }
       },
       {
@@ -77,7 +77,7 @@ export const QUERY_FORM_SETTINGS = {
         value: {
           default: 'All',
           field: 'college',
-          type: 'select',
+          type: 'autocomplete',
         },
       },
     ]

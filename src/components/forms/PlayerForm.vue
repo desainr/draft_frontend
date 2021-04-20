@@ -118,8 +118,8 @@
             </template>
           </v-autocomplete>
         </v-col>
-        <v-col>
-          <v-btn color="success" rounded @click="addFilter">
+        <v-col cols="3">
+          <v-btn block outlined color="success" rounded @click="addFilter">
             Add Filter
           </v-btn>
         </v-col>

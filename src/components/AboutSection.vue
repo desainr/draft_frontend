@@ -1,5 +1,6 @@
 <template>
-  <v-alert outlined color="dark">
+  <v-responsive>
+  <v-sheet outlined color="dark" rounded style="border-color: orange">
     <p class="text-center">
       <span class="text-h4">Hello! Welcome to Draft&#8226;QL.</span>
     </p>
@@ -161,7 +162,8 @@
       apologize.
     </p>
 
-  </v-alert>
+  </v-sheet>
+  </v-responsive>
 </template>
 
 <script>

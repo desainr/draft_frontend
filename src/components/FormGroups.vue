@@ -1,26 +1,30 @@
 <template>
-  <div>
-    <v-tabs centered v-model="tabs">
-      <v-tab>Draft</v-tab>
-      <v-tab>Player</v-tab>
-      <v-tab>Stats</v-tab>
-      <v-tab>Combine</v-tab>
-    </v-tabs>
-    <v-tabs-items v-model="tabs">
-      <v-tab-item>
-        <base-number-form :form-settings="formSettings.draft" @filterAdded="filterAdded"></base-number-form>
-      </v-tab-item>
-      <v-tab-item>
-        <player-form @filterAdded="filterAdded"></player-form>
-      </v-tab-item>
-      <v-tab-item>
-        <base-number-form :form-settings="formSettings.stats" @filterAdded="filterAdded"></base-number-form>
-      </v-tab-item>
-      <v-tab-item>
-        <base-number-form :form-settings="formSettings.combine" @filterAdded="filterAdded"></base-number-form>
-      </v-tab-item>
-    </v-tabs-items>
-  </div>
+  <v-container>
+    <v-row>
+      <v-col>
+        <v-tabs grow v-model="tabs">
+          <v-tab>Draft</v-tab>
+          <v-tab>Player</v-tab>
+          <v-tab>Stats</v-tab>
+          <v-tab>Combine</v-tab>
+        </v-tabs>
+        <v-tabs-items v-model="tabs">
+          <v-tab-item>
+            <base-number-form :form-settings="formSettings.draft" @filterAdded="filterAdded"></base-number-form>
+          </v-tab-item>
+          <v-tab-item>
+            <player-form @filterAdded="filterAdded"></player-form>
+          </v-tab-item>
+          <v-tab-item>
+            <base-number-form :form-settings="formSettings.stats" @filterAdded="filterAdded"></base-number-form>
+          </v-tab-item>
+          <v-tab-item>
+            <base-number-form :form-settings="formSettings.combine" @filterAdded="filterAdded"></base-number-form>
+          </v-tab-item>
+        </v-tabs-items>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>

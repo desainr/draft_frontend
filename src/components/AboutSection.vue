@@ -1,6 +1,6 @@
 <template>
   <v-responsive>
-  <v-sheet outlined color="dark" rounded style="border-color: orange">
+  <v-sheet outlined color="dark" rounded style="border-color: orange" class="pa-4">
     <p class="text-center">
       <span class="text-h4">Hello! Welcome to Draft&#8226;QL.</span>
     </p>

@@ -161,8 +161,7 @@ export default {
     copyQueryLink: function () {
       const query = this.query.toQueryString();
 
-      const fullQuery = `http://localhost:8080?${query}`;
-      // const fullQuery = `https://www.draftql.app?${query}`;
+      const fullQuery = `https://www.draftql.app?${query}`;
 
       const textarea = document.createElement("textarea");
       textarea.textContent = fullQuery;

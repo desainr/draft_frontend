@@ -4,9 +4,20 @@
         v-model="drawer"
         app
     >
-      <filter-list :filters="query.filters" :showWarning="showWarning" @filterRemoved="removeFilter" @querySubmitted="submitQuery"></filter-list>
+      <filter-list
+          :filters="query.filters"
+          :showWarning="showWarning"
+          @filterRemoved="removeFilter"
+          @querySubmitted="submitQuery"
+      >
+      </filter-list>
     </v-navigation-drawer>
-    <v-app-bar app :src="backgroundImagePath" prominent shrink-on-scroll>
+    <v-app-bar
+        app
+        prominent
+        shrink-on-scroll
+        :src="backgroundImagePath"
+    >
       <template v-slot:img="{ props }">
         <v-img
             v-bind="props"
@@ -18,7 +29,10 @@
         <span class="text-h2 title">Draft&#8226;QL</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon @click="() => this.showInformation = !showInformation">
+      <v-btn
+          icon
+          @click="() => this.showInformation = !showInformation"
+      >
         <v-icon
             color="white"
             dark
@@ -42,15 +56,41 @@
         <v-row>
           <v-col>
             <v-alert text type="error" v-if="showError">An error occurred, could not process query.</v-alert>
-            <result-table :draft-data="draftData" :loading="loading"></result-table>
+            <result-table
+                @copyQueryLink="copyQueryLink"
+                :draft-data="draftData"
+                :loading="loading"
+            >
+            </result-table>
           </v-col>
         </v-row>
       </v-container>
+      <v-snackbar
+          v-model="snackbar"
+          :timeout="timeout"
+      >
+        Copied link to clipboard!
+
+        <template v-slot:action="{ attrs }">
+          <v-btn
+              color="blue"
+              text
+              v-bind="attrs"
+              @click="snackbar = false"
+          >
+            Close
+          </v-btn>
+        </template>
+      </v-snackbar>
     </v-main>
     <v-footer>
       <p>
         All data credit to <a href="http://pro-football-reference.com">Pro Football Reference</a> and <a
           href="http://nflcombineresults.com">nflcombineresults.com</a>
+      </p>
+      <v-divider></v-divider>
+      <p>
+        <a href="mailto: draftqlapp@gmail.com">Contact Me</a>
       </p>
     </v-footer>
   </v-app>
@@ -77,9 +117,17 @@ export default {
     showWarning: false,
     query: new Query(),
     backgroundImagePath: backgroundImage,
+    snackbar: false,
+    timeout: 1500,
   }),
   created: async function () {
-    await this.submitQuery(this.query);
+    const routeParams = this.$route.query;
+
+    if (Object.keys(routeParams).length !== 0) {
+      this.query = Query.fromQueryString(routeParams);
+    }
+
+    await this.submitQuery();
   },
   methods: {
     addFilter: function (filter) {
@@ -97,7 +145,7 @@ export default {
         this.loading = true;
 
         try {
-          this.draftData = await executeQuery(this.query);
+          this.draftData = await executeQuery(this.query.toQueryString());
           this.showError = false;
         } catch (ex) {
           this.loading = false;
@@ -109,6 +157,28 @@ export default {
     },
     removeFilter: function (filter) {
       this.query.removeFilter(filter);
+    },
+    copyQueryLink: function () {
+      const query = this.query.toQueryString();
+
+      const fullQuery = `http://localhost:8080?${query}`;
+      // const fullQuery = `https://www.draftql.app?${query}`;
+
+      const textarea = document.createElement("textarea");
+      textarea.textContent = fullQuery;
+      textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in Microsoft Edge.
+      document.body.appendChild(textarea);
+      textarea.select();
+
+      try {
+        document.execCommand("copy");
+        this.snackbar = true;
+      } catch (ex) {
+        console.warn("Copy to clipboard failed.", ex);
+        return false;
+      } finally {
+        document.body.removeChild(textarea);
+      }
     }
   },
 }
@@ -120,5 +190,5 @@ export default {
 
 .title {
   font-family: 'Iceland', cursive !important;
-  }
+}
 </style>

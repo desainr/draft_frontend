@@ -1,8 +1,9 @@
 import {Filter} from "@/lib/models"
+import {OPERATORS} from "@/lib/constants/constants";
 
 export default class Query {
   constructor() {
-    this._filters = [new Filter('draft', 'year', '=', 2020)]
+    this._filters = [new Filter('year', '=', 2020)]
   }
 
   /**
@@ -34,6 +35,35 @@ export default class Query {
    */
   toQueryString() {
     return this._filters.map(f => f.toQueryString()).join('&');
+  }
+
+  static fromQueryString(paramsObject) {
+    const query = new Query();
+
+    const groupedQueryObj = {};
+    for (const key in paramsObject) {
+
+      // prop=year value=operator
+      const [prop, value] = key.split('.');
+
+      if (groupedQueryObj[prop]) {
+        groupedQueryObj[prop][value] = paramsObject[key];
+      } else {
+        groupedQueryObj[prop] = {
+          [value]: paramsObject[key],
+        }
+      }
+    }
+
+    for (const field in groupedQueryObj) {
+      if (groupedQueryObj[field].operator === OPERATORS.BETWEEN) {
+        query.addFilter(new Filter(field, groupedQueryObj[field].operator, groupedQueryObj[field].startValue, groupedQueryObj[field].endValue));
+      } else {
+        query.addFilter(new Filter(field, groupedQueryObj[field].operator, groupedQueryObj[field].value));
+      }
+    }
+
+    return query;
   }
 
   get filters() {

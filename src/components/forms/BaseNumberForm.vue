@@ -77,7 +77,7 @@ export default {
   },
   methods: {
     addFilter: function() {
-      const filterObj = new Filter(FILTER_CATEGORIES.DRAFT, this.selectedField.field, this.selectedOperator, this.startValue, this.selectedOperator === OPERATORS.BETWEEN ? this.endValue : null);
+      const filterObj = new Filter(this.selectedField.field, this.selectedOperator, this.startValue, this.selectedOperator === OPERATORS.BETWEEN ? this.endValue : null);
       this.$emit(EVENT_NAMES.FILTER_ADDED, filterObj)
     },
     updateDefaults(option) {

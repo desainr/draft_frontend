@@ -156,7 +156,7 @@ export default {
         const operator = this.selectedField.type !== 'text' ? OPERATORS.IN : OPERATORS.LIKE;
         const value = this.selectedField.type !== 'text' ? this.selectedValues : this.playerSearchString;
 
-        const filter = new Filter(FILTER_CATEGORIES.PLAYER, this.selectedField.field, operator, value);
+        const filter = new Filter(this.selectedField.field, operator, value);
         this.$emit(EVENT_NAMES.FILTER_ADDED, filter)
       }
     },

@@ -3,7 +3,17 @@
     <v-sheet>
       <v-container>
         <v-row>
-          <v-col sm="6"></v-col>
+          <v-col sm="2">
+            <v-btn
+                class="mt-4"
+                @click="copyQueryLink"
+                outlined
+                style="border-color: orange"
+            >
+              Copy Link to Results
+            </v-btn>
+          </v-col>
+          <v-col sm="4"></v-col>
           <v-col sm="3">
             <v-switch v-model="showStats" label="Show Player Stats"></v-switch>
           </v-col>
@@ -31,6 +41,7 @@
 <script>
 
 import {TABLE_HEADERS} from "@/lib/config/tableConfig";
+import {EVENT_NAMES} from "@/lib/constants/constants";
 
 export default {
   name: 'result-table',
@@ -66,6 +77,11 @@ export default {
       }
 
       return currentHeaders;
+    }
+  },
+  methods: {
+    copyQueryLink: function() {
+      this.$emit(EVENT_NAMES.COPY_LINK_CLICKED, true);
     }
   }
 }

@@ -138,9 +138,7 @@
       &#8226; <span style="color: #4caf50;">ADD FILTER</span> also updates an existing filter of the same field.
     </p>
     <p>
-      &#8226; Please note that the combine data, including Height and Weight, is not complete for every player.If you don't see a player show up when
-      you think they should, it's probably because there's no data for them. Also some players have default values (like
-      9.99 for 40 time) if they didn't run it.
+      &#8226; Please note that the combine data, including Height and Weight, is not complete for every player.
     </p>
     <p>
       &#8226; On the <span class="tab-font">Player</span> group, you are prevented from adding a filter of 'All' as that
@@ -158,8 +156,7 @@
         href="http://nflcombineresults.com">nflcombineresults.com</a>
     </p>
     <p>
-      &#8226; I'm just a smol indie developer so if you notice any bugs or it's not as performant as you like, I
-      apologize.
+      &#8226; Questions? Comments? Bug to report? Feature to request? Contact me @ <a href="mailto: draftqlapp@gmail.com">draftqlapp@gmail.com</a>
     </p>
 
   </v-sheet>

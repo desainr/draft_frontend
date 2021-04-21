@@ -7,7 +7,7 @@ const reqUrl = 'https://nfl-draft-api.azurewebsites.net/api/draft_filter?code=aV
  * @returns data []
  */
 const executeQuery = async (query) => {
-  const fullUrl = `${reqUrl}&${query.toQueryString()}`;
+  const fullUrl = `${reqUrl}&${query}`;
 
   const res = await getRequest(fullUrl);
 

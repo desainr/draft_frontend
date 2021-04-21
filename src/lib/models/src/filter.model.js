@@ -3,14 +3,12 @@ import {OPERATORS} from "@/lib/constants/constants";
 export default class Filter {
 
   /**f
-   * @param filterCategory {String}
    * @param fieldName {String}
    * @param operator {String}
    * @param value {String|Number}
    * @param endValue {Number?} for ranges only
    */
-  constructor(filterCategory, fieldName, operator, value, endValue=null) {
-    this._filterCategory = filterCategory;
+  constructor(fieldName, operator, value, endValue=null) {
     this._fieldName = fieldName;
     this._operator = operator;
     this._value = value;
@@ -44,15 +42,6 @@ export default class Filter {
 
   get fieldName() {
     return this._fieldName;
-  }
-
-
-  get filterCategory() {
-    return this._filterCategory;
-  }
-
-  set filterCategory(value) {
-    this._filterCategory = value;
   }
 
   get operator() {

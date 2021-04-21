@@ -18,4 +18,5 @@ export const EVENT_NAMES = {
   FILTER_ADDED: 'filterAdded',
   FILTER_REMOVED: 'filterRemoved',
   QUERY_SUBMITTED: 'querySubmitted',
+  COPY_LINK_CLICKED: 'copyQueryLink',
 };

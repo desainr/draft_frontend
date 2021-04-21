@@ -55,7 +55,7 @@
         </v-row>
         <v-row>
           <v-col>
-            <v-alert text type="error" v-if="showError">An error occurred, could not process query.</v-alert>
+            <v-alert text type="error" v-if="showError">An error occurred while processing query.</v-alert>
             <result-table
                 @copyQueryLink="copyQueryLink"
                 :draft-data="draftData"

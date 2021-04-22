@@ -219,17 +219,17 @@ export const QUERY_FORM_SETTINGS = {
       {
         text: 'Height (in)',
         value: {
-          default: 74,
           field: 'height',
-          type: 'number',
+          min: 60,
+          max: 90
         }
       },
       {
         text: 'Weight (lbs)',
         value: {
-          default: 250,
           field: 'weight',
-          type: 'number',
+          min: 150,
+          max: 400,
         }
       },
       {

@@ -5,7 +5,16 @@
         Active Filters
       </div>
       <div class="text-caption">
-        Click to remove
+        Click on an individual filter to remove it.
+      </div>
+      <div class="mt-4">
+        <v-btn
+            color="accent"
+            outlined
+            @click="reset"
+        >
+          Reset
+        </v-btn>
       </div>
     </v-banner>
     <v-list>
@@ -41,6 +50,9 @@ export default {
     },
     querySubmitted() {
       this.$emit(EVENT_NAMES.QUERY_SUBMITTED, true);
+    },
+    reset() {
+      this.$emit(EVENT_NAMES.RESET, true)
     }
   }
 }

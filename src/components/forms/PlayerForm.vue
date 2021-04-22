@@ -16,7 +16,7 @@
               multiple
               :items="options[selectedField.field]"
               v-model="selectedValues"
-              @change="updateSelectAll"
+              @change="updateSelectAll(); addFilter()"
           >
             <template
                 v-slot:prepend-item
@@ -61,6 +61,7 @@
               v-if="selectedField.field === 'player'"
               v-model="playerSearchString"
               type="text"
+              @change="addFilter"
               hint="Enter player name(s) to search. Search multiple by separating with |"
           >
           </v-text-field>
@@ -71,7 +72,7 @@
               chips
               multiple
               label="Type to search..."
-              @change="updateSelectAll"
+              @change="updateSelectAll; addFilter"
           >
             <template
                 v-slot:prepend-item
@@ -117,11 +118,6 @@
               </div>
             </template>
           </v-autocomplete>
-        </v-col>
-        <v-col cols="3">
-          <v-btn block outlined color="success" rounded @click="addFilter">
-            Add Filter
-          </v-btn>
         </v-col>
       </v-row>
     </v-container>

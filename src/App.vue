@@ -58,6 +58,7 @@
             <v-alert text type="error" v-if="showError">An error occurred while processing query.</v-alert>
             <result-table
                 @copyQueryLink="copyQueryLink"
+                @downloadCsv="downloadCsv"
                 :draft-data="draftData"
                 :loading="loading"
             >
@@ -105,6 +106,7 @@ import {Query} from "@/lib/models";
 import FilterList from "@/components/FilterList";
 import AboutSection from "@/components/AboutSection";
 import backgroundImage from '@/static/app-bar-background.jpg';
+import {generateCsv} from "@/lib/util/generateCsv";
 
 export default {
   components: {AboutSection, FilterList, QueryForm, ResultTable},
@@ -157,6 +159,20 @@ export default {
     },
     removeFilter: function (filter) {
       this.query.removeFilter(filter);
+    },
+    downloadCsv: function() {
+      const content = generateCsv(this.draftData);
+
+      const uri = encodeURI(content);
+
+      const link = document.createElement("a");
+      link.setAttribute("href", uri);
+      link.setAttribute("download", "draft_data.csv");
+      document.body.appendChild(link); // Required for FF
+
+      link.click();
+
+      document.body.removeChild(link);
     },
     copyQueryLink: function () {
       const query = this.query.toQueryString();

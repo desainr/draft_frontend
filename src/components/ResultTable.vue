@@ -3,7 +3,7 @@
     <v-sheet>
       <v-container>
         <v-row>
-          <v-col sm="2">
+          <v-col sm="1">
             <v-btn
                 class="mt-4"
                 @click="copyQueryLink"
@@ -11,6 +11,14 @@
                 style="border-color: orange"
             >
               Copy Link to Results
+            </v-btn>
+            <v-btn
+                class="mt-4"
+                @click="downloadCsv"
+                outlined
+                style="border-color: orange"
+            >
+              Download CSV
             </v-btn>
           </v-col>
           <v-col sm="4"></v-col>
@@ -86,6 +94,9 @@ export default {
   methods: {
     copyQueryLink: function() {
       this.$emit(EVENT_NAMES.COPY_LINK_CLICKED, true);
+    },
+    downloadCsv: function() {
+      this.$emit(EVENT_NAMES.DOWNLOAD_CSV, true);
     },
     updateSortBy(sortFields) {
       // This long and confusing function dynamically removes null data when sorting by a combine field.

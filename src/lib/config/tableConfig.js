@@ -37,3 +37,5 @@ export const TABLE_HEADERS = {
     {text: 'Three Cone', value: 'three_cone', class: 'green-text'},
   ]
 }
+
+export const COMBINE_VALUES = ['height', 'weight', 'forty_time', 'bench_press', 'vert_leap', 'broad_jump', 'shuttle', 'three_cone'];

@@ -14,6 +14,7 @@
           <v-select
             v-model="selectedOperator"
             :items="operatorOpts"
+            @change="addFilter"
           >
           </v-select>
         </v-col>
@@ -22,6 +23,7 @@
               type="number"
               v-model="startValue"
               :label="selectedField.text"
+              @change="addFilter"
           >
           </v-text-field>
         </v-col>
@@ -29,6 +31,7 @@
           <v-text-field
               type="number"
               v-model="startValue"
+              @change="addFilter"
           >
           </v-text-field>
         </v-col>
@@ -43,14 +46,15 @@
           <v-text-field
               type="number"
               v-model="endValue"
+              @change="addFilter"
           >
           </v-text-field>
         </v-col>
-        <v-col>
-          <v-btn block rounded outlined color="success" @click="addFilter">
-            Add Filter
-          </v-btn>
-        </v-col>
+<!--        <v-col>-->
+<!--          <v-btn block rounded outlined color="success" @click="addFilter">-->
+<!--            Add Filter-->
+<!--          </v-btn>-->
+<!--        </v-col>-->
       </v-row>
     </v-container>
   </div>
@@ -77,8 +81,10 @@ export default {
   },
   methods: {
     addFilter: function() {
-      const filterObj = new Filter(this.selectedField.field, this.selectedOperator, this.startValue, this.selectedOperator === OPERATORS.BETWEEN ? this.endValue : null);
-      this.$emit(EVENT_NAMES.FILTER_ADDED, filterObj)
+      if ((this.startValue || this.startValue === 0) && (this.selectedOperator === OPERATORS.BETWEEN ? this.endValue || this.endValue === 0 : true)) {
+        const filterObj = new Filter(this.selectedField.field, this.selectedOperator, this.startValue, this.selectedOperator === OPERATORS.BETWEEN ? this.endValue : null);
+        this.$emit(EVENT_NAMES.FILTER_ADDED, filterObj)
+      }
     },
     updateDefaults(option) {
       this.startValue = option.min;

@@ -30,6 +30,10 @@ export default class Query {
     }
   }
 
+  removeAllFilters() {
+    this._filters = [];
+  }
+
   /**
    * @returns {String}
    */

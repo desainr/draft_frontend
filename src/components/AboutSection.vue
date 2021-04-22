@@ -95,8 +95,8 @@
           </v-icon>
         </v-list-item-avatar>
         <v-list-item-content>
-          <v-list-item-title>Press <span style="color: #4caf50;">ADD FILTER</span></v-list-item-title>
-          <v-list-item-subtitle>Your filter will now show in the left pane under "Active Filters"</v-list-item-subtitle>
+          <v-list-item-title>Entering a value or changing the operator will automatically add a filter</v-list-item-title>
+          <v-list-item-subtitle>If you have an active filter of the same field, changing the value or operator will update it</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
       <v-list-item>
@@ -133,9 +133,6 @@
     <v-divider class="mt-2"></v-divider>
     <p>
       <span class="text-h6">A Couple of Notes...</span>
-    </p>
-    <p>
-      &#8226; <span style="color: #4caf50;">ADD FILTER</span> also updates an existing filter of the same field.
     </p>
     <p>
       &#8226; Please note that the combine data, including Height and Weight, is not complete for every player.

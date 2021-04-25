@@ -51,23 +51,6 @@
         </v-row>
         <v-row>
           <v-col>
-            <v-alert type="info" dismissible>
-              Update 1.1.0
-              <ul>
-                <li>
-                  Filters are now added/updated as you change values (removed need for 'Add Filter' button)
-                </li>
-                <li>
-                  Added 'Copy Link' feature to help share your results.
-                </li>
-                <li>
-                  Added 'Reset' button to reset query to initial state
-                </li>
-                <li>
-                  Fixed sorting by COMBINE fields to handle missing values better.
-                </li>
-              </ul>
-            </v-alert>
             <query-form @filterAdded="addFilter"></query-form>
           </v-col>
         </v-row>

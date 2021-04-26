@@ -72,7 +72,7 @@
               chips
               multiple
               label="Type to search..."
-              @change="updateSelectAll; addFilter"
+              @change="updateSelectAll(); addFilter();"
           >
             <template
                 v-slot:prepend-item

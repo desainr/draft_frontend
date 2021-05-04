@@ -3,7 +3,7 @@ import {OPERATORS} from "@/lib/constants/constants";
 
 export default class Query {
   constructor() {
-    this._filters = [new Filter('year', '=', 2020)]
+    this._filters = [new Filter('year', '=', 2021)]
   }
 
   /**

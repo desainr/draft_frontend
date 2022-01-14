@@ -52,10 +52,8 @@
         <v-row>
           <v-col>
             <v-alert type="info" dismissible>
-              2021 Draft is now in!
               <ul>
-                <li>Combine (pro day) stats coming soon</li>
-                <li>Stats will update after each week of the season</li>
+                <li>2021 Combine (pro day) numbers & 2021 stats FINALLY updated!</li>
               </ul>
             </v-alert>
             <query-form @filterAdded="addFilter"></query-form>

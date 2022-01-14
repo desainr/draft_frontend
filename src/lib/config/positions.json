@@ -1,3 +1,21 @@
 {
-  "positions": ["QB", "RB", "WR", "TE", "T", "G", "C", "FB", "DT", "DT", "LB", "S", "CB", "K", "P", "LS"]
+  "positions": [
+    "QB",
+    "RB",
+    "FB",
+    "WR",
+    "TE",
+    "OT",
+    "OG",
+    "OC",
+    "DE",
+    "DT",
+    "LB",
+    "DB",
+    "S",
+    "CB",
+    "LS",
+    "K",
+    "P"
+  ]
 }

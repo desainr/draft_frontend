@@ -26,8 +26,8 @@ export const QUERY_FORM_SETTINGS = {
         text: 'Year',
         value: {
           field: 'year',
-          min: 2021,
-          max: 2021,
+          min: 2022,
+          max: 2022,
         },
       },
       {

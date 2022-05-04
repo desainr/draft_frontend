@@ -53,7 +53,7 @@
           <v-col>
             <v-alert type="info" dismissible>
               <ul>
-                <li>2021 Combine (pro day) numbers & 2021 stats FINALLY updated!</li>
+                <li>2022 draft and combine added!</li>
               </ul>
             </v-alert>
             <query-form @filterAdded="addFilter"></query-form>

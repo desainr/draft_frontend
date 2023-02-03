@@ -1,6 +1,6 @@
 import { getRequest } from '@/lib/api/src/http';
 
-const reqUrl = 'https://nfl-draft-api.azurewebsites.net/api/draft_filter?code=aVIdIa9bNR2Dgc3eRzS1Sh9jHvFShHIqeguFXLQvUOOHjuGvyjRWOA==';
+const reqUrl = 'https://draftqlapi.azurewebsites.net/api/draft_filter?code=-_pDxPluI8HvlCTHp0GqHBu06X7QUHHzbR2HNcakN9cAAzFuHW1qiA==';
 
 /**
  * @param query Query

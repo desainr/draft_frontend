@@ -153,7 +153,7 @@
         href="http://nflcombineresults.com">nflcombineresults.com</a>
     </p>
     <p>
-      &#8226; Questions? Comments? Bug to report? Feature to request? Contact me @ <a href="mailto: draftqlapp@gmail.com">draftqlapp@gmail.com</a>
+      &#8226; Questions? Comments? Bug to report? Feature to request? Is there a player that has missing or incorrect data? Contact me @ <a href="mailto: draftqlapp@gmail.com">draftqlapp@gmail.com</a>
     </p>
 
   </v-sheet>

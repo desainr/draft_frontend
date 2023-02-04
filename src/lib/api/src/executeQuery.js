@@ -1,6 +1,6 @@
 import { getRequest } from '@/lib/api/src/http';
 
-const reqUrl = 'https://draftqlapi.azurewebsites.net/api/draft_filter?code=dpGEAebwFVcOPu5uu5XnR1szsey5eyOnxQfWIxjhw4J6AzFuZP317g==';
+const reqUrl = 'https://draftqlapi.azurewebsites.net/api/draft_filter?code=-_pDxPluI8HvlCTHp0GqHBu06X7QUHHzbR2HNcakN9cAAzFuHW1qiA==';
 
 /**
  * @param query Query

@@ -27,7 +27,7 @@
       </template>
       <v-icon @click="drawer = !drawer">mdi-filter-menu</v-icon>
       <v-toolbar-title class="ml-4">
-        <span class="text-h2 title">Draft&#8226;QL</span>
+        <span class="text-h2 title">DraftQL</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn
@@ -170,7 +170,7 @@ export default {
     copyQueryLink: function () {
       const query = this.query.toQueryString();
 
-      const fullQuery = `https://www.draftql.app?${query}`;
+      const fullQuery = `https://www.draft-ql.com?${query}`;
 
       const textarea = document.createElement("textarea");
       textarea.textContent = fullQuery;

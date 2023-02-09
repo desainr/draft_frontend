@@ -2,7 +2,7 @@
   <v-responsive>
   <v-sheet outlined color="dark" rounded style="border-color: orange" class="pa-4">
     <p class="text-center">
-      <span class="text-h4">Hello! Welcome to Draft&#8226;QL.</span>
+      <span class="text-h4">Hello! Welcome to DraftQL.</span>
     </p>
     <p class="text-center text-subtitle-1">
       This is a tool that allows you to search through all of the NFL drafts since 2000 to filter it down to
